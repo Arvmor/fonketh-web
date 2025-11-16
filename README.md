@@ -1,5 +1,7 @@
 # Fonketh-SDK
-Find details about Fonketh-SDK (document)[./src/packages/README.md].
+
+Find details about Fonketh-SDK package [document](./packages/fonketh-sdk/README.md).
+
 # Whitepaper
 
 ## Abstract
