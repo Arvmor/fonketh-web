@@ -2,7 +2,11 @@ import { FonkethClient } from "@/packages/fonketh-sdk";
 
 export default async function Home() {
   // Initialize the Fonketh Client
-  const fonkethAPI = new FonkethClient("http://localhost:8080");
+  const fonkethAPI = new FonkethClient("http://50.17.140.249:8080");
+
+  // Get the version
+  const version = await fonkethAPI.getVersion();
+  const health = await fonkethAPI.getHealth();
 
   // API Calls
   const chatMessages = await fonkethAPI.getChatMessages();
@@ -12,6 +16,10 @@ export default async function Home() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
       <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+       {/* Version and Health */}
+       <p>Version: {version.data}</p>
+       <p>Health: {health.data}</p>
+
         {/* Chat Messages */}
         {chatMessages.data.map((message) => (
           <div key={message.identifier}>
