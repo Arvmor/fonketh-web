@@ -5,7 +5,7 @@ export type Address = `0x${string}`;
 export type HexNumber = `0x${string}`;
 
 /** Response status */
-export type ResponseStatus = "success" | "error";
+export type ResponseStatus = "Success" | "Error";
 
 /** Schema for API Responses */
 export interface ResponseAPI<T> {

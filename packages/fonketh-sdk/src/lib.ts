@@ -41,7 +41,7 @@ export class FonkethClient {
 	 * @returns The chat messages `ResponseAPI<ChatMessage[]>`
 	 */
 	public async getChatMessages(): Promise<ResponseAPI<ChatMessage[]>> {
-		return this.callFonkethAPI<ChatMessage[]>("/chat", "GET");
+		return this.callFonkethAPI("/chat", "GET");
 	}
 
 	/**
@@ -49,7 +49,7 @@ export class FonkethClient {
 	 * @returns The players `ResponseAPI<Players[]>`
 	 */
 	public async getPlayers(): Promise<ResponseAPI<Players[]>> {
-		return this.callFonkethAPI<Players[]>("/players", "GET");
+		return this.callFonkethAPI("/players", "GET");
 	}
 
 	/**
@@ -57,6 +57,22 @@ export class FonkethClient {
 	 * @returns The mining batch `ResponseAPI<MiningBatch[]>`
 	 */
 	public async getMiningBatch(): Promise<ResponseAPI<MiningBatch[]>> {
-		return this.callFonkethAPI<MiningBatch[]>("/mine", "GET");
+		return this.callFonkethAPI("/mine", "GET");
+	}
+
+	/**
+	 * Function to get the health
+	 * @returns The health `ResponseAPI<Health>`
+	 */
+	public async getHealth(): Promise<ResponseAPI<string>> {
+		return this.callFonkethAPI("/health", "GET");
+	}
+
+	/**
+	 * Function to get the version
+	 * @returns The version `ResponseAPI<string>`
+	 */
+	public async getVersion(): Promise<ResponseAPI<string>> {
+		return this.callFonkethAPI("/", "GET");
 	}
 }
