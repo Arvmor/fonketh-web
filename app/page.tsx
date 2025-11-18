@@ -2,7 +2,7 @@ import { FonkethClient } from "@/packages/fonketh-sdk";
 
 export default async function Home() {
   // Initialize the Fonketh Client
-  const fonkethAPI = new FonkethClient("http://50.17.140.249:8080");
+  const fonkethAPI = new FonkethClient("http://localhost:8080");
 
   // Get the version
   const version = await fonkethAPI.getVersion();
@@ -37,7 +37,9 @@ export default async function Home() {
         {/* Mining Batch */}
         {miningBatch.data.map((batch, index) => (
           <div key={index}>
-            <p>{index}: {batch[0]}: {batch[1]}</p>
+            <p>Block #{index} | Block Hash: {fonkethAPI.verifyBlocks(batch)}</p>
+            <p>Miner: {batch.address} | Nonce: {batch.nonce}</p>
+            <p>Block Timestamp: {batch.timestamp}</p>
           </div>
         ))}
       </main>
