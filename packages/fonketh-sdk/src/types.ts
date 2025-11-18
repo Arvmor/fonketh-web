@@ -15,8 +15,15 @@ export interface ResponseAPI<T> {
 	data: T;
 }
 
-/** Mining Batch Schema */
-export type MiningBatch = [Address, HexNumber][];
+/** Mined Block Schema */
+export interface MiniedBlock {
+	/** Block address */
+	address: Address;
+	/** Block nonce */
+	nonce: HexNumber;
+	/** Block timestamp */
+	timestamp: number;
+}
 
 /** Position Schema */
 export interface Position {
