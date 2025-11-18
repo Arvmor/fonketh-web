@@ -2,7 +2,7 @@ import { FonkethClient } from "@/packages/fonketh-sdk";
 
 export default async function Home() {
   // Initialize the Fonketh Client
-  const fonkethAPI = new FonkethClient("http://localhost:8080");
+  const fonkethAPI = new FonkethClient("http://107.22.27.104:8080");
 
   // Get the version
   const version = await fonkethAPI.getVersion();
