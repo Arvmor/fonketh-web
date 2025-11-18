@@ -2,20 +2,19 @@
   "name": "@fonketh-web/fonketh-sdk",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "description": "Fonketh SDK",
   "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
+      "import": "./dist/index.js"
     },
     "./*": {
       "types": "./dist/*.d.ts",
-      "import": "./dist/*.mjs",
-      "require": "./dist/*.js"
+      "import": "./dist/*.js"
     }
   },
   "files": [
