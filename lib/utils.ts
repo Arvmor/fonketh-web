@@ -1,3 +1,10 @@
+import { clsx, type ClassValue } from "clsx"
+import { twMerge } from "tailwind-merge"
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
+
 /**
  * Converts a Unix timestamp to a human-readable "time ago" string
  * @param timestamp - Unix timestamp in seconds
@@ -20,4 +27,5 @@ export function getTimeAgo(timestamp: number): string {
     return `${days}d ago`;
   }
 }
+
 

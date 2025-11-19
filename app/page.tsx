@@ -1,5 +1,6 @@
 import { FonkethClient } from "@/packages/fonketh-sdk";
-import { getTimeAgo } from "./utils/time";
+import { getTimeAgo } from "@/lib/utils";
+import { ChatDrawer } from "@/components/chat-drawer";
 
 export default async function Home() {
   // Initialize the Fonketh Client
@@ -15,18 +16,11 @@ export default async function Home() {
   const miningBatch = await fonkethAPI.getMiningBatch();
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+    <div className="flex min-h-screen items-center justify-center font-sans bg-black text-white">
+      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 sm:items-start">
        {/* Version and Health */}
        <p>Version: {version.data}</p>
        <p>Health: {health.data}</p>
-
-        {/* Chat Messages */}
-        {chatMessages.data.map((message) => (
-          <div key={message.identifier}>
-            <p>{message.identifier}: {message.message} | {message.timestamp}s ago</p>
-          </div>
-        ))}
 
         {/* Players */}
         {players.data.map((player) => (
@@ -44,6 +38,9 @@ export default async function Home() {
           </div>
         ))}
       </main>
+
+      {/* Chat Drawer */}
+      <ChatDrawer messages={chatMessages.data} />
     </div>
   );
 }
