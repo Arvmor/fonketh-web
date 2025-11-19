@@ -35,5 +35,8 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "viem": "^2.39.2"
+  }
 }
