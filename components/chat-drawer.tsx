@@ -57,7 +57,7 @@ export function ChatDrawer({ messages }: ChatDrawerProps) {
           <MessageCircle className="h-7 w-7" />
         </Button>
       </DrawerTrigger>
-      <DrawerContent className="h-full w-96 bg-zinc-900 border-r border-zinc-800">
+      <DrawerContent className="h-full w-96 bg-zinc-900 border-r border-zinc-800 left-0 top-0">
         <DrawerHeader className="border-b border-zinc-800 pb-4">
           <div className="flex items-center justify-between">
             <div>
