@@ -1,4 +1,5 @@
-import { FonkethClient } from "@fonketh-web/fonketh-sdk";
+import { FonkethClient } from "@/packages/fonketh-sdk";
+import { getTimeAgo } from "./utils/time";
 
 export default async function Home() {
   // Initialize the Fonketh Client
@@ -21,15 +22,15 @@ export default async function Home() {
        <p>Health: {health.data}</p>
 
         {/* Chat Messages */}
-        {chatMessages.data.map((message, index) => (
-          <div key={`chat-${message.identifier}-${index}`}>
+        {chatMessages.data.map((message) => (
+          <div key={message.identifier}>
             <p>{message.identifier}: {message.message} | {message.timestamp}s ago</p>
           </div>
         ))}
 
         {/* Players */}
-        {players.data.map((player, index) => (
-          <div key={`player-${player.name}-${index}`}>
+        {players.data.map((player) => (
+          <div key={player.name}>
             <p>{player.name}: {player.balance} | {player.position.x}, {player.position.y}</p>
           </div>
         ))}
@@ -37,7 +38,9 @@ export default async function Home() {
         {/* Mining Batch */}
         {miningBatch.data.map((batch, index) => (
           <div key={index}>
-            <p>{index}: {batch[0]}: {batch[1]}</p>
+            <p>Block #{index} | Block Hash: {fonkethAPI.verifyBlocks(batch)}</p>
+            <p>Miner: {batch.address} | Nonce: {batch.nonce}</p>
+            <p>Block Timestamp: {getTimeAgo(batch.timestamp)}</p>
           </div>
         ))}
       </main>
